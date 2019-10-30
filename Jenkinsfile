@@ -39,6 +39,7 @@ ls -lah
     }
   }
 }'''
+          s3Upload(bucket: 'udacityfour', path: '\\')
         }
       }
     }

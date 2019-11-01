@@ -17,7 +17,7 @@ pipeline {
     }
     stage('AWS Upload') {
       steps {
-        sh 's3Upload(file:\'index.html\', bucket:\'udacityfour\', path:\'s3://udacityfour/index.html\')'
+        sh 's3Upload(file:\'index.html\', bucket:\'udacityfour\', path:\'index.html\')'
       }
     }
   }

@@ -1,15 +1,17 @@
 pipeline {
   agent any
   stages {
-    stage('Hello World') {
+    stage('Lint HTML') {
       steps {
-        sh 'echo "Hello World"'
-        sh '''
-            echo "Multiline shell steps works too"
-            ls -lah
-        '''
+        sh 'tidy -q -e *.html'
       }
     }
-
+    stage('Upload to AWS') {
+      steps {
+        withAWS(region:'us-east-2', credentials: 'aws-static') {
+          s3Upload(file:'index.html', bucket:'udacityfour', path:'html/index.html')
+        }
+      }
+    }
   }
 }

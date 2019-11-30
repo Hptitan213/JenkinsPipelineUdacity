@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Upload to AWS') {
       steps {
-        sh 'echo "Upload to S3"'
+        sh 'echo " Copy file to S3 "'
         sh '''
             echo "Multiline shell steps works too"
             ls -lah
